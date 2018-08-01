@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Enable submit button if at least one input has value - Codecrust.com</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="pricing.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Codecrust Demo</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="https://www.codecrust.com">Home</a>
+        <!-- <a class="p-2 text-dark" href="#">Enterprise</a>
+        <a class="p-2 text-dark" href="#">Support</a>
+        <a class="p-2 text-dark" href="#">Pricing</a> -->
+      </nav>
+      <!-- <a class="btn btn-outline-primary" href="#">Sign up</a> -->
+    </div>
+
+    <div class="container-fluid" style="min-height: 500px; margin-top: 50px;">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4">Enable submit button if at least one input has value</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3" style="margin-top:20px; border-width: .2rem; border: solid #f8f9fa; padding: 10px;">
+                <form class="cc-form">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="inputPassword4">Name</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control">
+                            <option value="" selected>Choose...</option>
+                            <option value="1">...</option>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+                    <button type="submit" id="search" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                <!-- <img class="mb-2" src="../../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24"> -->
+                <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+                </div>
+                <div class="col-6 col-md">
+                </div>
+                <div class="col-6 col-md">
+                </div>
+                <div class="col-6 col-md">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/holder.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            validateButton();
+            $('.cc-form input').keyup(validateButton);
+            $('.cc-form select').change(validateButton);
+        });
+        function validateButton() {
+            var enabled = false;
+            $('.cc-form input, .cc-form select').each(function(){
+                if ($.trim($(this).val()).length > 0) {
+                    enabled = true;
+                }
+            });
+
+            if(enabled){
+                $('#search').removeAttr('disabled', 'disabled');
+            } else {
+                $('#search').attr('disabled', 'disabled');
+            }
+        }
+    </script>
+  </body>
+</html>
