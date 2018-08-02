@@ -1,1 +1,1 @@
-# demo
+This repository contains the working demo of tutorials posted in my blog [codecrust.com](https://www.codecrust.com/)
